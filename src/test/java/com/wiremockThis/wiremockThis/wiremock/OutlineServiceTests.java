@@ -23,7 +23,7 @@ public class OutlineServiceTests extends BaseWireMock {
   public void returnDataFromService() {
     setupMockServer();
     Response res = confirmData();
-    res.then().body("name", equalTo("Godzilla"));
+    res.then().body("motherboard.nodeName", equalTo("Express"));
 
     res.prettyPrint();
   }

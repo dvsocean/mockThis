@@ -2,19 +2,25 @@ package com.wiremockThis.wiremockThis.nodes;
 
 import com.wiremockThis.wiremockThis.boards.Motherboard;
 
-public class Nodes {
+public class Nodes extends NodeSelector {
 
-  private String name;
-  private String color;
-  private String type;
-  private String engine;
-  private Motherboard motherboard = new Motherboard(45, "Sabertooth");
+  private int id;
+  private String name = randomNodeNameSelector();
+  private String color = randomNodeColorSelector();
+  private String type = randomNodeTypeSelector();
+  private String engine = randomNodeEngineSelector();
+  public Motherboard motherboard;
 
-  public Nodes(String name, String color, String type, String engine) {
-    this.name = name;
-    this.color = color;
-    this.type = type;
-    this.engine = engine;
+  public Nodes(int id, Motherboard motherboard) {
+    this.id = id;
+   this.motherboard = motherboard;
+
+  }
+
+
+
+  public int getId() {
+    return id;
   }
 
   public Motherboard getMotherboard() {
@@ -27,10 +33,6 @@ public class Nodes {
 
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public String getColor() {

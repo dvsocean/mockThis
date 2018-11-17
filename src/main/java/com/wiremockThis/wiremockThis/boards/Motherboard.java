@@ -1,28 +1,45 @@
 package com.wiremockThis.wiremockThis.boards;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Motherboard {
 
-    private int size;
-    private String brand;
+    private String nodeName;
+    private String nodeColor;
+    private String nodeType;
+    private String nodeEngine;
 
-    public Motherboard(int size, String brand) {
-        this.size = size;
-        this.brand = brand;
+    public Motherboard(String name) {
+        this.nodeName = name;
     }
 
-    public int getSize() {
-        return size;
+    public String getNodeName() {
+        return nodeName;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public String getNodeColor() {
+        return nodeColor;
     }
 
-    public String getBrand() {
-        return brand;
+    public void setNodeColor(String nodeColor) {
+        this.nodeColor = nodeColor;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public String getNodeType() {
+        return nodeType;
+    }
+
+    public void setNodeType(String nodeType) {
+        this.nodeType = nodeType;
+    }
+
+    public String getNodeEngine() {
+        return nodeEngine;
+    }
+
+    public void setNodeEngine(String nodeEngine) {
+        this.nodeEngine = nodeEngine;
     }
 }

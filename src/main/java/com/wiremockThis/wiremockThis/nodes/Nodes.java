@@ -17,7 +17,9 @@ public class Nodes extends NodeSelector {
 
   }
 
-
+  public Nodes(){
+    //So mockito wont complain
+  }
 
   public int getId() {
     return id;

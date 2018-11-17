@@ -24,6 +24,8 @@ public class OutlineServiceTests extends BaseWireMock {
     setupMockServer();
     Response res = confirmData();
     res.then().body("name", equalTo("Godzilla"));
+
+    res.prettyPrint();
   }
 
 }//End of class

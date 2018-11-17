@@ -1,14 +1,11 @@
 package com.wiremockThis.wiremockThis.mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wiremockThis.wiremockThis.applicationImpl.ZportStation;
-import com.wiremockThis.wiremockThis.boards.LightHouseBoard;
 import com.wiremockThis.wiremockThis.boards.Motherboard;
-import com.wiremockThis.wiremockThis.nodes.MockedNode;
 import com.wiremockThis.wiremockThis.nodes.Nodes;
 import com.wiremockThis.wiremockThis.service.SwitchStation;
 import org.junit.Rule;
@@ -47,9 +44,7 @@ public class MockitoTests {
     when(node.getMotherboard().getNodeEngine()).thenReturn("TechJunkie");
     assertEquals("TechJunkie", node.getMotherboard().getNodeEngine());
   }
-
   
-
   //  @Test
 //  public void findMotherboard() throws JsonProcessingException {
 //    MockedNode node = new MockedNode(mock(LightHouseBoard.class));

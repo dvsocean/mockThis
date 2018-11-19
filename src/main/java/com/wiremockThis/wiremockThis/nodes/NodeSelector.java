@@ -33,7 +33,7 @@ public class NodeSelector {
 
   protected String randomNodeEngineSelector(){
     Random random = new Random();
-    String[] storage = {"GOOGLE V8", "NodeStandardEngine", "MatrixEngine", "TorqueEngine"};
+    String[] storage = {"Javascript", "Javascript", "Javascript", "Javascript"};
     int index = random.nextInt(storage.length);
     return storage[index];
   }

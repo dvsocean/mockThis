@@ -1,5 +1,6 @@
 package com.wiremockThis.wiremockThis.nodes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wiremockThis.wiremockThis.boards.Motherboard;
 
 public class Nodes extends NodeSelector {
@@ -9,6 +10,9 @@ public class Nodes extends NodeSelector {
   private String color = randomNodeColorSelector();
   private String type = randomNodeTypeSelector();
   private String engine = randomNodeEngineSelector();
+
+  private boolean isValid;
+
   public Motherboard motherboard;
 
   public Nodes(int id, Motherboard motherboard) {
@@ -19,6 +23,14 @@ public class Nodes extends NodeSelector {
 
   public Nodes(){
     //So mockito wont complain
+  }
+
+  public boolean isValid() {
+    return isValid;
+  }
+
+  public void setValid(boolean valid) {
+    isValid = valid;
   }
 
   public int getId() {

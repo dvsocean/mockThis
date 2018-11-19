@@ -1,9 +1,5 @@
 package com.wiremockThis.wiremockThis.boards;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Motherboard {
 
     private String nodeName;

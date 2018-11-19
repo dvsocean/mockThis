@@ -57,4 +57,16 @@ public class ZportStation implements SwitchStation {
   public void addNodeForMvcTest(String name) {
     nodesGarage.add(new Nodes(1, new Motherboard(name)));
   }
+
+  public Nodes validateNodeIfJavascriptEngineFound(Nodes toValidate){
+    if(nodesGarage.size() > 0){
+      for(Nodes node : nodesGarage) {
+        if(node.getEngine().equalsIgnoreCase(toValidate.getEngine())){
+          toValidate.setValid(true);
+        }
+      }
+    }
+    return toValidate;
+  }
+
 }//End of class

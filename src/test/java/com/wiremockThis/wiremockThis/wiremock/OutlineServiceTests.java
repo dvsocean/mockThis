@@ -28,4 +28,14 @@ public class OutlineServiceTests extends BaseWireMock {
     res.prettyPrint();
   }
 
+  @Test
+  public void returnTrueIfJSFound() {
+    setupMockServerForJSEngine();
+    Response res = confirmDataWhenJavascriptEngineFound();
+
+    res.prettyPrint();
+
+    res.then().body("valid", equalTo(true));
+  }
+
 }//End of class

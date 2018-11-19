@@ -1,11 +1,13 @@
 package com.wiremockThis.wiremockThis.unitTests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wiremockThis.wiremockThis.applicationImpl.ZportStation;
 import com.wiremockThis.wiremockThis.boards.Motherboard;
 import com.wiremockThis.wiremockThis.nodes.Nodes;
-import com.wiremockThis.wiremockThis.service.SwitchStation;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
@@ -13,12 +15,12 @@ import org.junit.Test;
 
 public class ReturnNodesUnitTests {
 
-  private SwitchStation station = new ZportStation();
+  private ZportStation station = new ZportStation();
 
   @Test
   public void addNodeToBase(){
     Nodes node = new Nodes(1, new Motherboard("MSI"));
-    Assert.assertTrue(station.addSingleNode(node));
+    assertTrue(station.addSingleNode(node));
   }
 
   @Test
@@ -31,7 +33,7 @@ public class ReturnNodesUnitTests {
     for(Nodes node: nodesList) {
       station.addSingleNode(node);
     }
-    Assert.assertTrue(station.returnNodeColor());
+    assertTrue(station.returnNodeColor());
   }
 
   @Test
@@ -46,5 +48,26 @@ public class ReturnNodesUnitTests {
 
     Assert.assertEquals("ASUS", node.getMotherboard().getNodeName());
   }
+
+  @Test
+  public void returnTrueIfJavascriptEngineFound() throws JsonProcessingException {
+    Nodes originalNode = new Nodes();
+    originalNode.setEngine("Google");
+    station.addSingleNode(originalNode);
+
+    Nodes newNode = new Nodes();
+
+    System.out.println("isValid Results --> " + station.validateNodeIfJavascriptEngineFound(newNode).isValid());
+
+    ObjectMapper mapper = new ObjectMapper();
+    String output = mapper.writeValueAsString(newNode);
+    String output2 = mapper.writeValueAsString(originalNode);
+
+    System.out.println("Original node --> " + output2);
+    System.out.println("New node --> " + output);
+
+    assertFalse(station.validateNodeIfJavascriptEngineFound(newNode).isValid());
+  }
+
 
 }//End of class

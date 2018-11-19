@@ -1,5 +1,6 @@
 package com.wiremockThis.wiremockThis.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wiremockThis.wiremockThis.applicationImpl.ZportStation;
 import com.wiremockThis.wiremockThis.nodes.Nodes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,9 @@ public class NodeController {
   private ZportStation zportStation;
 
   @RequestMapping(value = "/findNode/{name}")
-  public Nodes findSingleNode(@PathVariable("name") String name){
-    Nodes node = new Nodes("Batman", "Black", "Superhero", "NA");
-    zportStation.addSingleNode(node);
-    return zportStation.retrieveNode(name);
+  public Nodes findSingleNode(@PathVariable("name") String name) throws JsonProcessingException {
+    zportStation.addNodeForMvcTest(name);
+    return zportStation.retrieveByMotherboardName(name);
   }
 
 }//End of class

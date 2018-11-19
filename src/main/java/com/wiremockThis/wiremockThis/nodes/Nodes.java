@@ -1,25 +1,52 @@
 package com.wiremockThis.wiremockThis.nodes;
 
-public class Nodes {
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wiremockThis.wiremockThis.boards.Motherboard;
 
-  private String name;
-  private String color;
-  private String type;
-  private String engine;
+public class Nodes extends NodeSelector {
 
-  public Nodes(String name, String color, String type, String engine) {
-    this.name = name;
-    this.color = color;
-    this.type = type;
-    this.engine = engine;
+  private int id;
+  private String name = randomNodeNameSelector();
+  private String color = randomNodeColorSelector();
+  private String type = randomNodeTypeSelector();
+  private String engine = randomNodeEngineSelector();
+
+  private boolean isValid;
+
+  public Motherboard motherboard;
+
+  public Nodes(int id, Motherboard motherboard) {
+    this.id = id;
+   this.motherboard = motherboard;
+
+  }
+
+  public Nodes(){
+    //So mockito wont complain
+  }
+
+  public boolean isValid() {
+    return isValid;
+  }
+
+  public void setValid(boolean valid) {
+    isValid = valid;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public Motherboard getMotherboard() {
+    return motherboard;
+  }
+
+  public void setMotherboard(Motherboard motherboard) {
+    this.motherboard = motherboard;
   }
 
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public String getColor() {

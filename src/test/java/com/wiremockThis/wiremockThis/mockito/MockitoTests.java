@@ -66,5 +66,4 @@ public class MockitoTests {
     assertTrue(ifJSFound.isValid());
   }
 
-
 }//End of class

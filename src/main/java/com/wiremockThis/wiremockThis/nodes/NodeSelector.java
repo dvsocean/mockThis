@@ -38,4 +38,14 @@ public class NodeSelector {
     return storage[index];
   }
 
+  protected int generateUniqueID(){
+    int[] namesArray = new int[500];
+    int index = (int) (Math.random() * namesArray.length);
+
+    for (int i = 0; i < namesArray.length - 1; i++) {
+      namesArray[i] = index;
+    }
+    return namesArray[index];
+  }
+
 }//End of class

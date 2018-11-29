@@ -14,6 +14,10 @@ public class ZportStation implements SwitchStation {
 
   private List<Nodes> nodesGarage = new ArrayList<Nodes>();
 
+  public List<Nodes> getNodesGarage() {
+    return nodesGarage;
+  }
+
   public Nodes findNodeById(int id) {
     for(Nodes node: nodesGarage) {
       if(node.getId() == id){
@@ -55,7 +59,7 @@ public class ZportStation implements SwitchStation {
   }
 
   public void addNodeForMvcTest(String name) {
-    nodesGarage.add(new Nodes(1, new Motherboard(name)));
+    nodesGarage.add(new Nodes(new Motherboard(name)));
   }
 
   public Nodes validateNodeIfJavascriptEngineFound(Nodes toValidate){

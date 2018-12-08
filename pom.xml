@@ -68,6 +68,13 @@
 			<version>2.19.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- CUCUMBER -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>

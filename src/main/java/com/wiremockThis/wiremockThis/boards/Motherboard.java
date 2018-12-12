@@ -1,14 +1,23 @@
 package com.wiremockThis.wiremockThis.boards;
 
-public class Motherboard {
+public class Motherboard extends ChipsetInitializer {
 
     private String nodeName;
     private String nodeColor;
     private String nodeType;
     private String nodeEngine;
+    private Chipset chipset = new Chipset(createNewIndexNode(), createNewIndexNode(), createChipsetFamily(), createNodeFamily(), createTags());
 
     public Motherboard(String name) {
         this.nodeName = name;
+    }
+
+    public Chipset getChipset() {
+        return chipset;
+    }
+
+    public void setChipset(Chipset chipset) {
+        this.chipset = chipset;
     }
 
     public String getNodeName() {

@@ -1,11 +1,10 @@
 package com.wiremockThis.wiremockThis.nodes;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wiremockThis.wiremockThis.boards.Motherboard;
 
 public class Nodes extends NodeSelector {
 
-  private int id;
+  private int id = generateUniqueID();
   private String name = randomNodeNameSelector();
   private String color = randomNodeColorSelector();
   private String type = randomNodeTypeSelector();
@@ -15,8 +14,7 @@ public class Nodes extends NodeSelector {
 
   public Motherboard motherboard;
 
-  public Nodes(int id, Motherboard motherboard) {
-    this.id = id;
+  public Nodes(Motherboard motherboard) {
    this.motherboard = motherboard;
 
   }

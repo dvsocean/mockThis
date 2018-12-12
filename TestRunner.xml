@@ -1,0 +1,31 @@
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >-->
+<!--&lt;!&ndash; the verbose attribute indicates log details, values range from 1-10 &ndash;&gt;-->
+<!--<suite name="VicAAriousRunner" verbose="1">-->
+
+  <!--&lt;!&ndash;<listeners>&ndash;&gt;-->
+    <!--&lt;!&ndash;<listener class-name="reports.TestListener"/>&ndash;&gt;-->
+  <!--&lt;!&ndash;</listeners>&ndash;&gt;-->
+
+  <!--<parameter name="testingURL" value="https://qasilo37-sjc.aa.com"/>-->
+  <!--<parameter name="login_id" value="5x78v88"/>-->
+  <!--<parameter name="login_lastName" value="Points"/>-->
+  <!--<parameter name="login_password" value="testing"/>-->
+
+  <!--&lt;!&ndash;<test name="Cucumber testing">&ndash;&gt;-->
+    <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+      <!--&lt;!&ndash;<class name="cucumber.stepDefinitions.Sail"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+  <!--&lt;!&ndash;</test>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<test name="Cucumber testing node creation">&ndash;&gt;-->
+    <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+      <!--&lt;!&ndash;<class name="cucumber.stepDefinitions.Away"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+  <!--&lt;!&ndash;</test>&ndash;&gt;-->
+
+<!--</suite>-->
+
+  <!--&lt;!&ndash;-->
+  <!--To run parallel methods or classes add the following attributes to the <test> tag-->
+  <!--parallel="classes" thread-count="2"-->
+  <!--&ndash;&gt;-->

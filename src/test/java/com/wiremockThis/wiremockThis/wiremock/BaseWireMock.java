@@ -19,11 +19,11 @@ public class BaseWireMock {
   private ZportStation station = new ZportStation();
 
   protected Response confirmData(){
-    return RestAssured.given().when().get("/findExtraNodes");
+    return RestAssured.given().when().get("http://localhost:5050/findExtraNodes");
   }
 
   protected Response confirmDataWhenJavascriptEngineFound(){
-    return RestAssured.given().when().post("/lookForJs");
+    return RestAssured.given().when().post("http://localhost:5050/lookForJs");
   }
 
   protected void setupMockServerForJSEngine(){

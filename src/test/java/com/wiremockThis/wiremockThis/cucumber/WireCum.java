@@ -1,6 +1,7 @@
 package com.wiremockThis.wiremockThis.cucumber;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import static org.junit.Assert.assertEquals;
+
 import com.wiremockThis.wiremockThis.boards.Motherboard;
 import com.wiremockThis.wiremockThis.nodes.Nodes;
 import com.wiremockThis.wiremockThis.wiremock.BaseWireMock;
@@ -10,12 +11,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.Rule;
 
 public class WireCum extends BaseWireMock {
-
-  @Rule
-  private WireMockRule wireMockRule = new WireMockRule(5550);
 
   @Before
   public void setup(){
@@ -31,9 +28,9 @@ public class WireCum extends BaseWireMock {
   }
 
   @When("^I create a board named \"([^\"]*)\"$")
-  public void i_create_a_board_named(String name) throws Exception {
+  public void i_create_a_board_named(String name) {
     wireMockRule.start();
-    setupMockServer(wireMockRule, name);
+    setupMockServer(name);
 
     Response res = confirmData();
     res.prettyPrint();
@@ -43,6 +40,9 @@ public class WireCum extends BaseWireMock {
 
   @Then("^I should still see available space$")
   public void i_should_still_see_available_space() throws Exception {
-
+    station.addSingleNode(new Nodes(new Motherboard("motherBitch")));
+    Nodes node = station.retrieveByMotherboardName("motherBitch");
+    assertEquals("motherBitch", node.getMotherboard().getNodeName());
+    System.out.println("Results of motherboard name --> " + node.getMotherboard().getNodeName());
   }
 }

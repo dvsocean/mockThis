@@ -3,7 +3,6 @@ package com.wiremockThis.wiremockThis.wiremock;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +16,10 @@ import io.restassured.response.Response;
 import org.junit.Rule;
 
 public class BaseWireMock {
+
+  //Access modifier needs to be public if class is being inherited
+  @Rule
+  public WireMockRule wireMockRule = new WireMockRule(5550);
 
   protected ZportStation station = new ZportStation();
 
@@ -43,9 +46,9 @@ public class BaseWireMock {
             .withBody(convertToJson(validatedNode))));
   }
 
-  protected void setupMockServer(WireMockRule rule, String name){
+  protected void setupMockServer(String name){
     Nodes node = new Nodes(new Motherboard(name));
-    rule.stubFor(get(urlMatching("/findExtraNodes"))
+    wireMockRule.stubFor(get(urlMatching("/findExtraNodes"))
         .willReturn(aResponse()
             .withStatus(200)
             .withHeader("Content-Type", "application/json")

@@ -77,6 +77,27 @@
 			<!--<scope>test</scope>-->
 		<!--</dependency>-->
 
+		<!--&lt;!&ndash;HTML EXTENT REPORTS&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.relevantcodes</groupId>-->
+			<!--<artifactId>extentreports</artifactId>-->
+			<!--<version>2.41.2</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.aventstack</groupId>-->
+			<!--<artifactId>extentreports</artifactId>-->
+			<!--<version>3.1.5</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash;HTML EXTENT REPORTS&ndash;&gt;-->
+
+		<!--&lt;!&ndash;SELENIDE&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.codeborne</groupId>-->
+			<!--<artifactId>selenide</artifactId>-->
+			<!--<version>4.11.4</version>-->
+			<!--<scope>test</scope>-->
+		<!--</dependency>-->
+
 		<!-- CUCUMBER STUFF -->
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-spring -->
 		<dependency>

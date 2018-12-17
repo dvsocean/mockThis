@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class WireCum extends BaseWireMock {
+public class WiremockCucumber extends BaseWireMock {
 
   @Before
   public void setup(){
@@ -40,9 +40,9 @@ public class WireCum extends BaseWireMock {
 
   @Then("^I should still see available space$")
   public void i_should_still_see_available_space() throws Exception {
-    station.addSingleNode(new Nodes(new Motherboard("motherBitch")));
-    Nodes node = station.retrieveByMotherboardName("motherBitch");
-    assertEquals("motherBitch", node.getMotherboard().getNodeName());
+    station.addSingleNode(new Nodes(new Motherboard("Matrix75")));
+    Nodes node = station.retrieveByMotherboardName("Matrix75");
+    assertEquals("Matrix75", node.getMotherboard().getNodeName());
     System.out.println("Results of motherboard name --> " + node.getMotherboard().getNodeName());
   }
 }

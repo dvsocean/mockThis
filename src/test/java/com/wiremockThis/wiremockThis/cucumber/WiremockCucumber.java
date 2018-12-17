@@ -27,6 +27,17 @@ public class WiremockCucumber extends BaseWireMock {
     }
   }
 
+  @Given("^a motherboard by the name of \"([^\"]*)\" has already been created$")
+  public void a_motherboard_by_the_name_of_has_already_been_created(String arg1) throws Exception {
+    wireMockRule.start();
+    setupMockServer(arg1);
+
+    Response res = confirmData();
+    res.prettyPrint();
+
+    wireMockRule.stop();
+  }
+
   @When("^I create a board named \"([^\"]*)\"$")
   public void i_create_a_board_named(String name) {
     wireMockRule.start();
@@ -36,6 +47,11 @@ public class WiremockCucumber extends BaseWireMock {
     res.prettyPrint();
 
     wireMockRule.stop();
+  }
+
+  @When("^I have a free node$")
+  public void i_have_a_free_node() throws Exception {
+    System.out.println("AND Clause passed!");
   }
 
   @Then("^I should still see available space$")

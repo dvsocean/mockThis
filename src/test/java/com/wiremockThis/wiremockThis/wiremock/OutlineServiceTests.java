@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class OutlineServiceTests extends BaseWireMock {
 
-
   @Test
   public void verify_creation(){
     setupMockServer("Express");
